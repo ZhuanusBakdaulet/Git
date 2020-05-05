@@ -47,7 +47,17 @@ function myFunction() {
         alert("Input " + err);
     }
 }
-var a = document.querySelector('#lS');
+function dtr() {
+    const input = document.getElementById('item');
+    let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
+    localStorage.setItem('items', JSON.stringify(itemsArray));
+    function myFunction() {
+        itemsArray.push(input.value);
+        localStorage.setItem('items', JSON.stringify(itemsArray));
+        input.value = ''
+    }
+    myFunction();
+}
 /*function emailValidation() {
     var email = document.querySelectorAll('input[data-rule]');
     for (let input of email) {
